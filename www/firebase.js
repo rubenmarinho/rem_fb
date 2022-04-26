@@ -110,8 +110,10 @@ exports.setAnalyticsCollectionEnabled = function (enabled, success, error) {
    exec(success, error, PLUGIN_NAME, "addTraceAttribute", [traceName, attribute, value]);
  };
 
- exports.setPerformanceCollectionEnabled = function (enabled, success, error) {
-   exec(success, error, PLUGIN_NAME, "setPerformanceCollectionEnabled", [enabled]);
+ exports.setPerformanceCollectionEnabled = function (enabled) {
+    return new Promise(function (resolve, reject) {
+            exec(resolve, reject, PLUGIN_NAME, "setPerformanceCollectionEnabled", [enabled]);
+        });
  };
 
 //
