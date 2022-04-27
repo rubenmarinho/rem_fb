@@ -111,10 +111,8 @@ exports.setAnalyticsCollectionEnabled = function (enabled, success, error) {
  };
 
  exports.setPerformanceCollectionEnabled = function (enabled) {
-    return new Promise(function (resolve, reject) {
-            exec(resolve, reject, PLUGIN_NAME, "setPerformanceCollectionEnabled", [enabled]);
-        });
- };
+     exec(success, error, PLUGIN_NAME, "setPerformanceCollectionEnabled", [enabled]);
+};
 
 //
 // Remote configuration
