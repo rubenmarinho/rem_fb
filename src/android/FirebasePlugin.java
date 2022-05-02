@@ -861,20 +861,6 @@ public class FirebasePlugin extends CordovaPlugin {
     });
   }
 
-  private void setDefaults(final CallbackContext callbackContext, final JSONObject defaults) {
-    cordova.getThreadPool().execute(new Runnable() {
-      public void run() {
-        try {
-          FirebaseRemoteConfig.getInstance().setDefaults(defaultsToMap(defaults));
-          callbackContext.success();
-        } catch (Exception e) {
-          Crashlytics.logException(e);
-          callbackContext.error(e.getMessage());
-        }
-      }
-    });
-  }
-
   private static Map<String, Object> defaultsToMap(JSONObject object) throws JSONException {
     final Map<String, Object> map = new HashMap<String, Object>();
 
