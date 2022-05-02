@@ -805,7 +805,7 @@ public class FirebasePlugin extends CordovaPlugin {
     cordova.getThreadPool().execute(new Runnable() {
       public void run() {
         try {
-          final boolean activated = FirebaseRemoteConfig.getInstance().activateFetched();
+          final boolean activated = FirebaseRemoteConfig.getInstance().activate();
           Log.d(TAG, "activateFetched success. activated: " + String.valueOf(activated));
           callbackContext.success(String.valueOf(activated));
         } catch (Exception e) {
