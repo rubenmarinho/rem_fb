@@ -56,25 +56,25 @@ exports.clearAllNotifications = function (success, error) {
 //
 // Analytics
 //
-exports.logEvent = function (name, params, success, error) {
-  exec(success, error, PLUGIN_NAME, "logEvent", [name, params]);
-};
+//exports.logEvent = function (name, params, success, error) {
+//  exec(success, error, PLUGIN_NAME, "logEvent", [name, params]);
+//};
 
-exports.setScreenName = function (name, success, error) {
-  exec(success, error, PLUGIN_NAME, "setScreenName", [name]);
-};
+//exports.setScreenName = function (name, success, error) {
+//  exec(success, error, PLUGIN_NAME, "setScreenName", [name]);
+//};
 
-exports.setUserId = function (id, success, error) {
-  exec(success, error, PLUGIN_NAME, "setUserId", [id]);
-};
+//exports.setUserId = function (id, success, error) {
+//  exec(success, error, PLUGIN_NAME, "setUserId", [id]);
+//};
 
-exports.setUserProperty = function (name, value, success, error) {
-  exec(success, error, PLUGIN_NAME, "setUserProperty", [name, value]);
-};
+//exports.setUserProperty = function (name, value, success, error) {
+//  exec(success, error, PLUGIN_NAME, "setUserProperty", [name, value]);
+//};
 
-exports.setAnalyticsCollectionEnabled = function (enabled, success, error) {
-  exec(success, error, PLUGIN_NAME, "setAnalyticsCollectionEnabled", [enabled]);
-};
+//exports.setAnalyticsCollectionEnabled = function (enabled, success, error) {
+//  exec(success, error, PLUGIN_NAME, "setAnalyticsCollectionEnabled", [enabled]);
+//};
 
 //
 // Crashlytics
@@ -94,25 +94,25 @@ exports.setAnalyticsCollectionEnabled = function (enabled, success, error) {
 //
 // Performance
 //
- exports.startTrace = function (name, success, error) {
-   exec(success, error, PLUGIN_NAME, "startTrace", [name]);
- };
+// exports.startTrace = function (name, success, error) {
+//   exec(success, error, PLUGIN_NAME, "startTrace", [name]);
+// };
 
- exports.incrementCounter = function (name, counterNamed, success, error) {
-   exec(success, error, PLUGIN_NAME, "incrementCounter", [name, counterNamed]);
- };
+// exports.incrementCounter = function (name, counterNamed, success, error) {
+//   exec(success, error, PLUGIN_NAME, "incrementCounter", [name, counterNamed]);
+// };
 
- exports.stopTrace = function (name, success, error) {
-   exec(success, error, PLUGIN_NAME, "stopTrace", [name]);
- };
+// exports.stopTrace = function (name, success, error) {
+//   exec(success, error, PLUGIN_NAME, "stopTrace", [name]);
+// };
 
- exports.addTraceAttribute = function (traceName, attribute, value, success, error) {
-   exec(success, error, PLUGIN_NAME, "addTraceAttribute", [traceName, attribute, value]);
- };
+// exports.addTraceAttribute = function (traceName, attribute, value, success, error) {
+//   exec(success, error, PLUGIN_NAME, "addTraceAttribute", [traceName, attribute, value]);
+// };
 
- exports.setPerformanceCollectionEnabled = function (enabled, success, error) {
-     exec(success, error, PLUGIN_NAME, "setPerformanceCollectionEnabled", [enabled]);
-};
+// exports.setPerformanceCollectionEnabled = function (enabled, success, error) {
+//     exec(success, error, PLUGIN_NAME, "setPerformanceCollectionEnabled", [enabled]);
+//};
 
 //
 // Remote configuration
