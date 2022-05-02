@@ -849,23 +849,6 @@ public class FirebasePlugin extends CordovaPlugin {
     });
   }
 
-  private void getByteArray(final CallbackContext callbackContext, final String key) {
-    cordova.getThreadPool().execute(new Runnable() {
-      public void run() {
-        try {
-          byte[] bytes = FirebaseRemoteConfig.getInstance().getByteArray(key);
-          JSONObject object = new JSONObject();
-          object.put("base64", Base64.encodeToString(bytes, Base64.DEFAULT));
-          object.put("array", new JSONArray(bytes));
-          callbackContext.success(object);
-        } catch (Exception e) {
-          Crashlytics.logException(e);
-          callbackContext.error(e.getMessage());
-        }
-      }
-    });
-  }
-
   private void getValue(final CallbackContext callbackContext, final String key) {
     Log.d(TAG, "getValue called. key: " + key);
     cordova.getThreadPool().execute(new Runnable() {
@@ -874,46 +857,6 @@ public class FirebasePlugin extends CordovaPlugin {
           FirebaseRemoteConfigValue value = FirebaseRemoteConfig.getInstance().getValue(key);
           Log.d(TAG, "getValue success. value: " + value.asString());
           callbackContext.success(value.asString());
-        } catch (Exception e) {
-          Crashlytics.logException(e);
-          callbackContext.error(e.getMessage());
-        }
-      }
-    });
-  }
-
-  private void getInfo(final CallbackContext callbackContext) {
-    cordova.getThreadPool().execute(new Runnable() {
-      public void run() {
-        try {
-          FirebaseRemoteConfigInfo remoteConfigInfo = FirebaseRemoteConfig.getInstance().getInfo();
-          JSONObject info = new JSONObject();
-
-          JSONObject settings = new JSONObject();
-          settings.put("developerModeEnabled", remoteConfigInfo.getConfigSettings().isDeveloperModeEnabled());
-          info.put("configSettings", settings);
-
-          info.put("fetchTimeMillis", remoteConfigInfo.getFetchTimeMillis());
-          info.put("lastFetchStatus", remoteConfigInfo.getLastFetchStatus());
-
-          callbackContext.success(info);
-        } catch (Exception e) {
-          Crashlytics.logException(e);
-          callbackContext.error(e.getMessage());
-        }
-      }
-    });
-  }
-
-  private void setConfigSettings(final CallbackContext callbackContext, final JSONObject config) {
-    cordova.getThreadPool().execute(new Runnable() {
-      public void run() {
-        try {
-          boolean devMode = config.getBoolean("developerModeEnabled");
-          FirebaseRemoteConfigSettings.Builder settings = new FirebaseRemoteConfigSettings.Builder()
-              .setDeveloperModeEnabled(devMode);
-          FirebaseRemoteConfig.getInstance().setConfigSettings(settings.build());
-          callbackContext.success();
         } catch (Exception e) {
           Crashlytics.logException(e);
           callbackContext.error(e.getMessage());
