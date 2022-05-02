@@ -155,19 +155,15 @@ public class FirebasePlugin extends CordovaPlugin {
       else this.fetch(callbackContext);
       return true;
     } else if (action.equals("getByteArray")) {
-      this.getByteArray(callbackContext, args.getString(0));
       return true;
     } else if (action.equals("getValue")) {
       this.getValue(callbackContext, args.getString(0));
       return true;
     } else if (action.equals("getInfo")) {
-      this.getInfo(callbackContext);
       return true;
     } else if (action.equals("setConfigSettings")) {
-      this.setConfigSettings(callbackContext, args.getJSONObject(0));
       return true;
     } else if (action.equals("setDefaults")) {
-      this.setDefaults(callbackContext, args.getJSONObject(0));
       return true;
     } else if (action.equals("startTrace")) {
       this.startTrace(callbackContext, args.getString(0));
